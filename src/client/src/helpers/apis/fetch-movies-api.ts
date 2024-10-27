@@ -4,7 +4,6 @@ import { getToken } from '../get-refresh-token';
 
 export const fetchMoviesApi = async (page: number, limit: number) => {
   const token = getToken();
-
   try {
     const response = await axios.get(
       `${API_HOST}/${Get_PAGINATEDMOVIES_PATH}?page=${page}&limit=${limit}`,

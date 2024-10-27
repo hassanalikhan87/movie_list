@@ -8,25 +8,24 @@ import TextInput from '../common/TextInput';
 import { MEDIA_QUERY } from '../../constants/styles/media-query';
 import Button from '../common/Button';
 import { loginUser } from '../../helpers/apis/login-user';
+import { useAuth } from '../../context/AuthContext';
+import { useNavigate } from 'react-router-dom';
 
 const Login: React.FC = () => {
+  const { login } = useAuth();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [rememberMe, setRememberMe] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
+  const navigate = useNavigate();
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
       const token = await loginUser(email, password);
-
-      if (rememberMe) {
-        localStorage.setItem('authToken', `Bearer ${token}`);
-      } else {
-        sessionStorage.setItem('authToken', `Bearer ${token}`);
-      }
-
-      window.location.href = '/'; // Redirect to home page after login
+      login(token, rememberMe);
+      navigate('/');
     } catch (err) {
       setError((err as Error).message);
     }
