@@ -6,6 +6,7 @@ import { COLOR } from '../../constants/styles/color';
 import { MEDIA_QUERY } from '../../constants/styles/media-query';
 import { SPACING } from '../../constants/styles/spacing';
 import { useNavigate } from 'react-router-dom';
+import { IMAGE_URL } from '../../helpers/api.config';
 
 interface MovieCardProps {
   _id: string;
@@ -28,7 +29,7 @@ const MovieCard: React.FC<MovieCardProps> = ({
 
   return (
     <Container onClick={handleClick}>
-      <Image src={`http://localhost:9000/uploads/${poster}`} alt={title} />
+      <Image src={`${IMAGE_URL}/${poster}`} alt={title} />
       <div>
         <Title>{title}</Title>
         <Year>{publishingYear}</Year>
