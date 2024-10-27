@@ -11,8 +11,6 @@ import Heading from '../common/MainHeading';
 import { SIZE } from '../../constants/styles/size';
 import useFetchMovies from '../../helpers/hooks/useFetchMovies';
 import PaginationComponent from '../common/Pagination';
-import MovieCardLoader from '../common/MovieCardSkeleton';
-import MovieCardSkeleton from '../common/MovieCardSkeleton';
 import NoMoviesToShow from './NoMoviestoShow';
 import MovieListLoadingState from './MovieListLoadingState';
 
@@ -146,36 +144,4 @@ const GridContainer = styled.div`
     grid-template-columns: repeat(12, 1fr);
     margin: 0 ${SPACING.s12};
   }
-`;
-
-const Pagination = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: ${SPACING.s8} 0;
-`;
-
-const PaginationButton = styled.button`
-  ${TYPOGRAPHY.h6};
-  background-color: transparent;
-  color: ${COLOR.white};
-  border: none;
-  border-radius: 4px;
-  padding: ${SPACING.s3} ${SPACING.s5};
-  margin: 0 ${SPACING.s4};
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-
-  &:disabled {
-    cursor: not-allowed;
-  }
-
-  &:hover:not(:disabled) {
-    opacity: 0.8;
-  }
-`;
-
-const PageInfo = styled.span`
-  ${TYPOGRAPHY.bodyRG};
-  color: ${COLOR.white};
 `;

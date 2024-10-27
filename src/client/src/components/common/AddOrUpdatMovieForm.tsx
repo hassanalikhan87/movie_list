@@ -1,5 +1,5 @@
 import React, { useState, FormEvent } from 'react';
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import { SPACING } from '../../constants/styles/spacing';
 import { MEDIA_QUERY } from '../../constants/styles/media-query';
 import TextInput from './TextInput';

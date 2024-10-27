@@ -75,11 +75,6 @@ const PaginationButton = styled.button`
   }
 `;
 
-const PageInfo = styled.span`
-  ${TYPOGRAPHY.bodyRG};
-  color: ${COLOR.white};
-`;
-
 const PageNumber = styled.button<{ $isActive: boolean }>`
   ${TYPOGRAPHY.h6};
   background-color: ${({ $isActive }) =>

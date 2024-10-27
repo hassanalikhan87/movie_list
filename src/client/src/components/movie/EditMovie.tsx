@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { addMovieApi } from '../../helpers/apis/add-movie-api';
 import AddOrUpdatMovieForm from '../common/AddOrUpdatMovieForm';
 import { editMovieApi } from '../../helpers/apis/edit-movie-api';
 

@@ -1,4 +1,4 @@
-import React, { FormEvent } from 'react';
+import React from 'react';
 import Button from './Button';
 import styled from 'styled-components';
 import { SPACING } from '../../constants/styles/spacing';
