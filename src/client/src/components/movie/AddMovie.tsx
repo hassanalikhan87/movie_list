@@ -11,7 +11,6 @@ const fields = [
     placeholder: 'Enter the movie title',
     required: true,
     charWidth: 45
-
   },
   {
     name: 'publishingYear',
@@ -30,25 +29,27 @@ const fields = [
 ];
 
 const AddMovie: React.FC = () => {
-const [errorMessage, setErrorMessage] = useState('');
-
+  const [errorMessage, setErrorMessage] = useState('');
   const navigate = useNavigate();
 
   const handleSubmit = async (formData: FormData) => {
-
     try {
-      await addMovieApi(
-        formData.get('title') as string,
-        formData.get('publishingYear') as string,
-        formData.get('poster') as File
-      );
+      const title = formData.get('title') as string;
+      const publishingYear = formData.get('publishingYear') as string;
+      const poster = formData.get('poster') as File;
+
+      if (!title || !publishingYear || !poster) {
+        setErrorMessage('All fields are required.');
+        return;
+      }
+
+      await addMovieApi(title, publishingYear, poster);
       navigate('/');
     } catch (error) {
-      setErrorMessage('Error adding movie')
+      setErrorMessage('Error adding movie. Please try again.');
       console.error('Error adding movie', error);
     }
   };
-
 
   const handleCancel = () => {
     navigate('/');

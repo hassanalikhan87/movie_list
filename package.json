@@ -5,6 +5,7 @@
   "scripts": {
     "start": "node dist/server/app.js",
     "build": "tsc",
+    "postbuild": "cp -R ./src/server/assets ./dist/server/assets",
     "dev": "nodemon --watch src --ext ts --exec ts-node -r tsconfig-paths/register src/server/app.ts",
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint './src/**/*.{ts,js}'"

@@ -21,7 +21,7 @@ app.use(
 app.use(bodyParser.json());
 
 // Serve static files from the `/uploads` directory
-app.use('/uploads', express.static(path.join(__dirname, './assets')));
+app.use('/uploads', express.static(path.join(__dirname, 'assets')));
 
 app.use('/api', movieRoutes);
 app.use('/api/auth', authRoutes);

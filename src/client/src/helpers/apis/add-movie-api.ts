@@ -7,7 +7,7 @@ export const addMovieApi = async (
   publishingYear: string,
   poster: File,
 ) => {
-  const token = getToken();
+  const token = getToken(); // Assumes the token already has the 'Bearer ' prefix
   const formData = new FormData();
   formData.append('title', title);
   formData.append('publishingYear', publishingYear);
@@ -20,12 +20,17 @@ export const addMovieApi = async (
       {
         headers: {
           'Content-Type': 'multipart/form-data',
-          Authorization: token,
+          Authorization: token, // Should include 'Bearer ' prefix
         },
       },
     );
     return response.data;
   } catch (error) {
+    if (axios.isAxiosError(error)) {
+      console.error('Axios error:', error.response?.data || error.message);
+    } else {
+      console.error('Unknown error:', error);
+    }
     throw new Error('Failed to add movie');
   }
 };
